@@ -1,23 +1,6 @@
-// import EasyHttp from './models/easyHttp';
-// import Favorite from './models/favorite';
-// import Movie from './models/movie';
-// import Storage from './models/storage';
-// import { elements } from './js/base';
-// import * as easyHttpView from './views/easyHttpView';
-// import * as easyHttpview from './views/easyHttpView';
-// import * as movieView from './views/movieView';
-// Getting initial/onload movies 
-// Search Controller
 const state = {};
 state.favoriteMovies = [];
 
-
-// Getting started
-// let box = document.querySelector('.box-mg')
-// let button = document.querySelector('#btn1')
-// let search = document.querySelector('#search-mg')
-// let searchValue = document.querySelector('#Name')
-// let form = document.querySelector('form')
 
 const getAllMovies = (e) =>{
 	const query = getInput();
