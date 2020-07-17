@@ -1,6 +1,8 @@
 const emptyFavoriteContainer = () => {
 	let innerhtml;
-		innerhtml = `<div>You have no Movie in your list</div>` 
+		innerhtml = `<div class="mx-auto mt-2">
+						<p style="text-align:center;"> You have no Movie in your list</p>
+					</div>` 
 	return innerhtml
 }
 

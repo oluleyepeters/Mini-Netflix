@@ -227,13 +227,16 @@ elements.fav.addEventListener('click', e => {
 					setTimeout(() => {
 						setTimeout(()=>{
 							setTimeout(() => {
-								let remove = document.querySelector('.removeicon');
-								console.log(remove.dataset.goto)
-								remove.addEventListener('click', e => {
-									e.target.parentElement.parentElement.remove();
-									state.favoriteMovies = state.favoriteMovies.filter((movies) => {
-										return movies.imdbID !== remove.dataset.goto		
-									})
+								let container = document.querySelector('body');
+								// console.log(remove.dataset.goto)
+								container.addEventListener('click', e => {
+									if(e.target.classList.contains('removeicon')){
+										console.log(e)
+										e.target.parentElement.parentElement.remove();
+										state.favoriteMovies = state.favoriteMovies.filter((movies) => {
+											return movies.imdbID !== e.target.dataset.goto		
+										})
+									}
 									storeItemInLocalStorage(state.favoriteMovies)
 								})
 							},200)
