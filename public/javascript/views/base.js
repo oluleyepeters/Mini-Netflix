@@ -4,7 +4,7 @@ const elements = {
     button : document.querySelector('#btn1'),
     opener : document.querySelector('.opener'),	
     searchValue : document.querySelector('#searchInput'),
-    formOne : document.querySelector('.form-1'),
+    // formOne : document.querySelector('.form-1'),
     movieContainer : document.querySelector('.movie-container'),
 	main : document.querySelector('main'),
     footer : document.querySelector('footer'),    

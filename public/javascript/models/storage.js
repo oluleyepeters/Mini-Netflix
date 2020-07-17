@@ -1,55 +1,53 @@
 const storeItemInLocalStorage = function(movies){
-  let movieList;
-  // Check if any items in ls
-  if(sessionStorage.getItem('movieList') === null){
-    movieList = [];
+  let favoritesMovies;
+  // Check if any items in sessionStorage
+  if(localStorage.getItem('favoritesMovies') === null){
+    favoritesMovies = [];
     // Push new item
-    movieList.push(...movies);
-    // Set ls
-    sessionStorage.setItem('movieList', JSON.stringify(movieList));
-    } else {
+    favoritesMovies.push(...movies);
+    // Set sessionStorage
+    localStorage.setItem('favoritesMovies', JSON.stringify(favoritesMovies));
+  } else {
+    favoritesMovies = [];
     // Get what is already in ls
-    movieList = JSON.parse(sessionStorage.getItem('movieList'));
-
+    localStorage.removeItem('favoritesMovies');
     // Push new item
-    movieList.push(...movies);
-
+    favoritesMovies.push(...movies);
     // Reset ls
-    localStorage.setItem('movieList', JSON.stringify(movieList));
+    localStorage.setItem('favoritesMovies', JSON.stringify(favoritesMovies));
     }
-  }
+ }
 
 const getItemsFromStorage = () => {
-      let movieList;
-      if(localStorage.getItem('movieList') === null){
-        movieList = [];
-      } else {
-        movieList = JSON.parse(localStorage.getItem('movieList'));
-      }
-      return movieList;
+  let favoritesMovies;
+    if(localStorage.getItem('favoritesMovies') === null){
+      favoritesMovies = [];
+    } else {
+      favoritesMovies = JSON.parse(localStorage.getItem('favoritesMovies'));
     }
-//     updateItemStorage: function(updatedItem){
-//       let items = JSON.parse(localStorage.getItem('items'));
+  return favoritesMovies;
+}
 
-//       items.forEach(function(item, index){
-//         if(updatedItem.id === item.id){
-//           items.splice(index, 1, updatedItem);
-//         }
-//       });
-//       localStorage.setItem('items', JSON.stringify(items));
-//     },
-//     deleteItemFromStorage: function(id){
-//       let items = JSON.parse(localStorage.getItem('items'));
-      
-//       items.forEach(function(item, index){
-//         if(id === item.id){
-//           items.splice(index, 1);
-//         }
-//       });
-//       localStorage.setItem('items', JSON.stringify(items));
-//     },
-//     clearItemsFromStorage: function(){
-//       localStorage.removeItem('items');
-//     }
-//   }
-// })();
+const updateItemStorage = updatedItem => {
+    let favoritesMovies = JSON.parse(localStorage.getItem('favoritesMovies'));
+    favoritesMovies.forEach(function(movie, index){
+        if(updatedItem.imdbID === movie.imdbID){
+            items.splice(movie, 1, updatedItem);
+        }
+    });
+      localStorage.setItem('favoritesMovies', JSON.stringify(favoritesMovies));
+}
+
+const deleteItemFromStorage = imdbID => {
+    let movieList = JSON.parse(Storage.getItem('movieList'));
+    movieList.forEach(function(movie, index){
+        if(imdbID === movie.imdbID){
+          movieList.splice(index, 1);
+        }
+      });
+      sessionStorage.setItem('movieList', JSON.stringify(movieList));
+    }
+
+const clearItemsFromStorage = () => {
+      sessionStorage.removeItem('movieList');
+    }

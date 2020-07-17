@@ -11,7 +11,9 @@ class MovieView{
 			 fetch(`https://www.omdbapi.com/?apikey=${this.apiKey}&i=${this.imdbID}`)
 	 		.then(res => res.json())
 	 		.then(data => resolve(data))
-	 		.catch(err => reject(err))
+	 		.catch(err => {
+	 			reject(err)
+	 		})
 	 	})
 	 }
 }	

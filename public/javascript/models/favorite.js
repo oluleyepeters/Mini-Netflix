@@ -8,5 +8,3 @@ const favoritesIterator = (favorites) => {
 		}
 	}
 }
-
- 

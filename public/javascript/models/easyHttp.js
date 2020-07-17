@@ -11,7 +11,7 @@ class EasyHttp{
 			 fetch(`https://www.omdbapi.com/?apikey=${this.apiKey}&s=${this.query}`)
 	 		.then(res => res.json())
 	 		.then(data => resolve(data))
-	 		.catch(err => reject(err))
+	 		.catch(err => resolve("Failed to Fetch"))
 	 	})
 	 }
 }	
