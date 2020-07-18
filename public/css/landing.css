@@ -18,6 +18,63 @@ a{
     width: 100%;
 }
 
+.loader-box{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  /*z-index: 50000;*/
+  /*background: red;*/
+  display:none;
+}
+
+.loaderText{
+  position: fixed;
+  width: 150px;
+  height: 40px;
+  left: 50%;
+  top: 56%;
+  margin-left: -75px;
+  text-align: center;
+  color: white;
+}
+
+.loader{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  margin-left: -30px;
+  margin-top: -30px;
+  width: 60px;
+  height: 60px;
+  border-width: 5px;
+  border-style: solid;
+  border-right-color: lightblue;
+  border-bottom-color: lightblue;
+  border-top-color: lightblue;
+  border-left-color: gray;
+  border-radius: 50%;
+  z-index: 30000;
+  /*animation-delay: 1s;*/
+  animation-name: loader;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loader{
+  0%{
+    transform: rotate(0deg);
+  }
+
+  100%{
+    transform: rotate(720deg);
+  }
+}
+
 .errorMessage{
   color: white;
   position: fixed;
@@ -29,7 +86,7 @@ a{
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10000;
+  z-index: 1000000;
 }
 
 .successMessage{
@@ -44,7 +101,7 @@ a{
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10000;
+  z-index: 1000000;
 }
 
 .existMessage{
@@ -59,7 +116,7 @@ a{
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10000;
+  z-index: 1000000;
 }
 
 .onBlur {
@@ -158,7 +215,7 @@ a{
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 9999;
+  z-index: 20999;
   width: 100%;
   height: 100%;
   padding-top: 20px;
@@ -179,14 +236,14 @@ a{
   /*right: 0;*/
   margin-left: -170px;
   /*margin-top: */
-  z-index: 9999;
+  z-index: 29999;
   /*width: 100%;*/
   /*width: 480px;*/
   width: 340px;
   /*margin: 0px auto;*/
   /*min-height: 520px;*/
   height: 90%;
-  padding-top: 20px;
+  padding-top: 5px;
   background-color: white;
   /*opacity: 0.2;*/
   /*background-color: rgba(0, 0, 0, 0.4);*/
@@ -213,6 +270,32 @@ a{
   max-width: 350px;
   min-height: 450px;
   overflow: auto;
+}
+
+.modal-bg{
+  position: fixed;
+  top: 0;
+  display: none;
+  opacity: 0.9;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 15000;
+  background: navyblue;
+}
+
+.single-modal-bg{
+  position: fixed;
+  top: 0;
+  display: none;
+  opacity: 0.9;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 15000;
+  background: navyblue;
 }
 
 /*.movie-iterator{

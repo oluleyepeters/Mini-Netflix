@@ -34,12 +34,15 @@
       <p style="display: none" id="descriptionGetStarted">Click on this button to serve for your favorite movie</p> 
     </div> 
     <div class="row movie-container">
-      
     </div>
   </main>
   <div style="height: 50px;">
   	
   </div>
+       <div class="loader-box">
+        <div class="loader"></div>
+        <p class="loaderText">Hold On A Moment</p>
+      </div> 
   <footer class="fixed-bottom bg-dark mt-4 text-center d-flex align-items-center justify-content-center text-white" style="height: 50px;">
     &copy;Petib 2019
   </footer>
@@ -55,23 +58,27 @@
   <script type="text/javascript" src="javascript/models/easyHttp.js"></script>
   <script type="text/javascript" src="javascript/index.js"></script>
 </body>
-<div id="secondModal" class="Modal2 is-hidden is-visuallyHidden">
-  <div class="Modal-content2">
-  <i class="fa fa-2x fa-window-close Close" id="closeModal2" style="color: red;"></i>
-    <div class="container movie-box">
-      <div class="movie-iterator row">
+<div class="modal-bg">
+ </div> 
+<div class="single-modal-bg">
+ </div>  
+  <div id="secondModal" class="Modal2 is-hidden is-visuallyHidden">
+    <div class="Modal-content2">
+    <i class="fa fa-2x fa-window-close Close" id="closeModal2" style="color: red;"></i>
+      <div class="container movie-box">
+        <div class="movie-iterator row">
         
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 </html>
-<div id="myModal" class="Modal is-hidden is-visuallyHidden">
-  <div class="Modal-content">
-    <i id="closeModal" class="fa fa-2x fa-window-close Close" style="color: red;"></i>
-    <div class="container">
-        <div class="movie-Content"></div>
-    </div>
-	</div>
-</div>	
+  <div id="myModal" class="Modal is-hidden is-visuallyHidden">
+    <div class="Modal-content">
+      <i id="closeModal" class="fa fa-2x fa-window-close Close" style="color: red;"></i>
+      <div class="container">
+          <div class="movie-Content"></div>
+      </div>
+	 </div>
+  </div> 	
