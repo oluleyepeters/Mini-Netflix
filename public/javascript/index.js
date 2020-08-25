@@ -95,7 +95,7 @@ function closeModal(){
 	elements.footer.classList.remove('blur');
 	document.querySelector('nav').classList.remove('blur')
  	document.querySelector('.single-modal-bg').style.display = 'none';
-		 	document.querySelector('.single-modal-bg').style.zIndex = 15000;						 			 	 	
+	document.querySelector('.single-modal-bg').style.zIndex = 15000;						 			 	 	
 }
 
 elements.movieContainer.addEventListener('click', e =>{
@@ -122,13 +122,15 @@ elements.movieContainer.addEventListener('click', e =>{
 			elements.footer.classList.add('blur');
 			document.querySelector('.single-modal-bg').style.display = 'block';				
 		 	// document.querySelector('.single-modal-bg').style.background = 'red';						 	
-		 	document.querySelector('.single-modal-bg').style.zIndex = 2000000;						 			 	
+		 	document.querySelector('.single-modal-bg').style.zIndex = 20000;						 			 	
 			document.getElementById('myModal').classList.remove('is-hidden')
 			setTimeout(function(){
 			document.getElementById('myModal').classList.remove('is-visuallyHidden')
 			},500)
 			content = displayMovie(movieBody);
-			document.querySelector('.movie-Content').innerHTML = content;					 	
+			document.querySelector('.movie-Content').zIndex = 30000;			
+			document.querySelector('.movie-Content').innerHTML = content;
+			console.log(content);					 	
 			return content
 		})
 		.then(function(content){			
@@ -136,9 +138,6 @@ elements.movieContainer.addEventListener('click', e =>{
 				closeModal()
 			})
 			return content
-		})
-		.then(function(content){
-			document.querySelector('.formTwo').addEventListener('click', addTofavorites)
 		})
 		.catch(err => {
 			displayMovieError();
@@ -148,6 +147,7 @@ elements.movieContainer.addEventListener('click', e =>{
 }) 
 
 const addTofavorites = (e) => {
+		console.log(e);
 		let currMovie = new MovieView();
 		let imdbID = state.search.currentMovie.imdbID
 		currMovie.imdbID = imdbID
@@ -159,6 +159,7 @@ const addTofavorites = (e) => {
 			movieBody.imdbID = movie.imdbID;
 			movieBody.Year = movie.Year;
 			movieBody.Type = movie.Type;
+			console.log(movieBody)
 			return movieBody			
 		})
 		.then((movieBody)=>{
@@ -173,14 +174,25 @@ const addTofavorites = (e) => {
 				console.log('error')
 				existingMovie()
 			}
+			return value;
 		})
+		.then((value) => {
+			document.addEventListener('keydown', e => {
+				if(e.keyCode === 27){
+					closeModal()
+				}	
+			}) 										
+			document.querySelector('.single-modal-bg').addEventListener('click', e => {
+ 				closeModal()
+			})
+			return value
+		})	 
 		.catch((err) => {
 			return displayMovieError()
 		})
 		// .then((err) => {
 		// 	displayMovieError()
 		// })
-	e.preventDefault();
 }
 
 function trapTabKey(e){
@@ -211,7 +223,7 @@ function closeModal2(){
 	elements.main.classList.remove('blur');
 	elements.footer.classList.remove('blur');
 	document.querySelector('nav').classList.remove('blur')
- 	(document.querySelector('.modal-bg').style.display = 'none')	
+ 	document.querySelector('.modal-bg').style.display = 'none'	
  	document.querySelector('.modal-bg').style.zIndex = 15000;						 			 	 	
 }
 
@@ -303,7 +315,6 @@ elements.fav.addEventListener('click', e => {
 				})
 				document.addEventListener('keydown', e => {
 					if(e.keyCode === 27){
-						console.log(e)
 						closeModal2()
 					}	
 				}) 										
@@ -326,7 +337,13 @@ document.querySelector('body').addEventListener('click', e => {
 	if(e.target.classList.contains('single-modal-bg')){
 		closeModal()
 	}
-})		  
+})	
+
+elements.body.addEventListener('click', e => {
+	if(e.target.classList.contains('formTwo')){
+		addTofavorites()
+	}	
+})	  
 
 document.addEventListener('keydown', e => {
 	if(e.target.classList.contains('single-modal-bg')){
